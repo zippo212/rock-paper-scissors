@@ -5,13 +5,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
 
 
+    <div class="container">
 
-    
+        <button class="play">Play</button>
+        <p id="typeW"></p>
+
+        <div class="main none">
+
+            <div class="player select">
+                <div class="name">PLAYER</div>
+                <div class=score>
+                    <img src="./img/user.png">
+                    <span class="player-score">SCORE:0</span>
+                </div>
+                <div class="picks">
+                    <div class="rock player-pick" id="rock">
+                        <div class="choice">ROCK</div>
+                        <img src="./img/rock.png">
+                    </div>
+                    <div class="paper player-pick" id="paper">
+                        <div class="choice">PAPER</div>
+                        <img src="./img/paper.png">
+                    </div>
+                    <div class="scissors player-pick" id="scissors">
+                        <div class="choice">SCISSORS</div>
+                        <img src="./img/scissors.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="computer select">
+                <div class="name">COMPUTER</div>
+                <div class=score>
+                    <img src="./img/robot.png">
+                    <span class="computer-score">SCORE:0</span>
+                </div>
+                <div class="picks">
+                    <div class="rock computer-pick">
+                        <div class="choice">ROCK</div>
+                        <img src="./img/rock.png">
+                    </div>
+                    <div class="paper computer-pick">
+                        <div class="choice">PAPER</div>
+                        <img src="./img/paper.png">
+                    </div>
+                    <div class="scissors computer-pick">
+                        <div class="choice">SCISSORS</div>
+                        <img src="./img/scissors.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="end-game none">
+            <div class="logo">
+                <img src="./img/robot.png" id="robotwin">
+                <img src="./img/user.png" id="userwin">
+            </div> 
+            <div class="result"></div>
+            <button class="reset">PLAY AGAIN</button>
+        </div>
+        
+    </div>
+
+
 <script src="./script.js"></script>
 </body>
 </html>
