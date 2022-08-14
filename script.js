@@ -27,7 +27,7 @@ const playRound = (player, computer) => {
 }
 
 const playGame = (id) => {
-    console.log(id);
+    sound('play')
     if (!id) return
         computerPick = getComputerChoice();
         playerPick = id;
@@ -37,20 +37,43 @@ const playGame = (id) => {
         checkEndGame()
 }
 
+const sound = (condition) => {
+    if (condition === 'play') {
+    const audio = document.querySelector('.sound')
+    audio.currentTime = 0;
+    audio.play();
+    } else if (condition === 'win') {
+        const audioW = document.querySelector('.sound-win')
+        audioW.currentTime = 0;
+        audioW.play();
+    } else if (condition === 'lose'){
+        const audioL = document.querySelector('.sound-lose')
+        audioL.currentTime = 0;
+        audioL.play();
+    } else {
+        const audioD = document.querySelector('.sound-draw')
+        audioD.currentTime = 0;
+        audioD.play();
+    }
+}
+
     let userLogo = document.querySelector('#userwin')
     let robotLogo = document.querySelector('#robotwin')
 
 const checkEndGame = () => {
     if (playerScore === 5 && computerScore === 5) {
+        sound('draw')
         mainGame.classList.toggle("none")
         endGame.classList.toggle("none")          
         result.textContent = `Tie! ${playerScore} - ${computerScore}`
     } else if (playerScore === 5) {
+        sound('win')
         mainGame.classList.toggle("none")
         endGame.classList.toggle("none")
         robotLogo.classList.toggle("none")            
         result.textContent = `player wins! ${playerScore} - ${computerScore}`
     } else if (computerScore === 5) {
+        sound('lose')
         mainGame.classList.toggle("none")
         endGame.classList.toggle("none")   
         userLogo.classList.toggle("none")        
@@ -97,9 +120,9 @@ const btnR = document.querySelector('.reset').addEventListener('click', reset)
 
 
 const play = () => {
+    btnP.classList.add("none")
     setTimeout(() => {
         typeW()
-        btnP.classList.add("none")
     }, 200);
     setTimeout(() => {
         mainGame.classList.toggle("none")
@@ -115,7 +138,7 @@ let speed = 50;
 
 function typeW() {
     if (i < txt.length) {
-        document.getElementById("typeW").innerHTML += txt.charAt(i);
+        document.getElementById("typeW").textContent += txt.charAt(i);
         i++;
         setTimeout(typeW, speed);
     }
